@@ -81,6 +81,36 @@ body {
     margin: 0 auto;
 }
 
+.video-container{
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.2;
+    position: static;
+    z-index: -999;
+}
+
+iframe {
+    position: absolute;
+    z-index: -999;
+    top: 50%;
+    left: 50%;
+    width: 150vw;
+    height: 150vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-container iframe {
+    height: 56.25vw;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-container iframe {
+    width: 177.78vh;
+  }
+}
+
 @media(max-width: 1340px) {
     .row {
         max-width: 1100px;
@@ -404,8 +434,6 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./images/header.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -601,17 +629,6 @@ body:not(.user-is-tabbing) a:focus {
 
 .footer__social-image {
     height: 4rem;
-}
-
-.footer__github-buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.footer__github-buttons iframe {
-    height: 2.5rem;
-    width: 84px;
-    transform: translateY(3px);
 }
 
 @media(max-width: 500px) {
